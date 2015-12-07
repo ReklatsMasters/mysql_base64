@@ -1,4 +1,4 @@
-TARGET = udf_gbbase64.so
+TARGET = base64.so
 
 all: $(TARGET)
 
