@@ -91,10 +91,9 @@ static size_t base64_decode(const char* s, size_t len, char* result)
 	return offset;
 }
 
-
-DLLEXP my_bool gb_base64_encode_init(UDF_INIT* initid, UDF_ARGS* args, char* message)
+DLLEXP my_bool TO_BASE64_init(UDF_INIT* initid, UDF_ARGS* args, char* message)
 {
-	static const char* func = "gb_base64_encode";
+	static const char* func = "TO_BASE64";
 	unsigned long int len;
 
 	if (args->arg_count != 1) {
@@ -125,7 +124,7 @@ DLLEXP my_bool gb_base64_encode_init(UDF_INIT* initid, UDF_ARGS* args, char* mes
 	return 0;
 }
 
-DLLEXP void gb_base64_encode_deinit(UDF_INIT* initid)
+DLLEXP void TO_BASE64_deinit(UDF_INIT* initid)
 {
 	if (initid->ptr) {
 		free(initid->ptr);
@@ -133,7 +132,7 @@ DLLEXP void gb_base64_encode_deinit(UDF_INIT* initid)
 	}
 }
 
-DLLEXP char* gb_base64_encode(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long int* res_length, char* null_value, char* error)
+DLLEXP char* TO_BASE64(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long int* res_length, char* null_value, char* error)
 {
 	const char* s = args->args[0];
 
@@ -152,10 +151,9 @@ DLLEXP char* gb_base64_encode(UDF_INIT* initid, UDF_ARGS* args, char* result, un
 	return result;
 }
 
-
-DLLEXP my_bool gb_base64_decode_init(UDF_INIT* initid, UDF_ARGS* args, char* message)
+DLLEXP my_bool FROM_BASE64_init(UDF_INIT* initid, UDF_ARGS* args, char* message)
 {
-	static const char* func = "gb_base64_decode";
+	static const char* func = "FROM_BASE64";
 	unsigned long int len;
 
 	if (args->arg_count != 1) {
@@ -186,7 +184,7 @@ DLLEXP my_bool gb_base64_decode_init(UDF_INIT* initid, UDF_ARGS* args, char* mes
 	return 0;
 }
 
-DLLEXP void gb_base64_decode_deinit(UDF_INIT* initid)
+DLLEXP void FROM_BASE64_deinit(UDF_INIT* initid)
 {
 	if (initid->ptr) {
 		free(initid->ptr);
@@ -194,7 +192,7 @@ DLLEXP void gb_base64_decode_deinit(UDF_INIT* initid)
 	}
 }
 
-DLLEXP char* gb_base64_decode(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long int* res_length, char* null_value, char* error)
+DLLEXP char* FROM_BASE64(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long int* res_length, char* null_value, char* error)
 {
 	const char* s = args->args[0];
 
